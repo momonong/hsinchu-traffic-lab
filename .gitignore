@@ -218,3 +218,28 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local traffic research assets (large source files and generated data)
+/data/raw/
+/data/processed/
+/work/
+/.state/
+/outputs/
+
+# 0.2.0 source-only release; runtime research and accounts stay local.
+/data/
+.env.*
+*.pt
+*.joblib
+*.npz
+/reports/*
+!/reports/xinglong-public-feed-2026-10-23/
+/reports/xinglong-public-feed-2026-10-23/*
+!/reports/xinglong-public-feed-2026-10-23/feed_adapter.py
+!/reports/xinglong-public-feed-2026-10-23/once_probe.py
+!/reports/xinglong-public-feed-2026-10-23/test_feed_adapter.py
+!/reports/xinglong-public-feed-2026-10-23/test_once_probe.py
+!/reports/xinglong-host-peak-2026-10-27/
+/reports/xinglong-host-peak-2026-10-27/*
+!/reports/xinglong-host-peak-2026-10-27/host_runner.py
+!/reports/xinglong-host-peak-2026-10-27/candidate.html.tmpl
