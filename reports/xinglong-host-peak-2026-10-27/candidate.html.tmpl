@@ -1,0 +1,29 @@
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>興隆橋兩段觀測</title>
+<style>body{font-family:system-ui,sans-serif;margin:0;background:#f5f5f2;color:#202b2a;line-height:1.6}main{max-width:880px;margin:auto;padding:32px 20px}h1{font-size:clamp(26px,5vw,40px);line-height:1.2}p{max-width:72ch}.meta{color:#52615f;font-size:14px;overflow-wrap:anywhere}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0}article{background:white;border:1px solid #b9c4c0;padding:20px;min-width:0}h2{font-size:20px;margin:0 0 12px}.status{font-size:22px;font-weight:700}dl{margin-bottom:0}dt{color:#52615f;font-size:14px}dd{margin:0 0 10px;overflow-wrap:anywhere}.note{border-left:4px solid #416b60;padding-left:16px}.bad{color:#984827}.good{color:#2b6452}button{font:inherit;padding:8px 12px;background:white;border:1px solid #687b76;cursor:pointer}button:focus-visible{outline:3px solid #416b60;outline-offset:3px}@media(max-width:580px){.grid{grid-template-columns:1fr}main{padding:22px 16px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}</style>
+<main><h1>興隆橋兩段觀測</h1><p>這是一份固定資料快照，沒有持續連線。頁面每 15 秒重新判斷時間；資料過期或核對失敗時，不採用舊的好值替代。</p><p class="meta" id="clock"></p><div id="cards" class="grid" aria-live="polite"></div><p class="note">目前只能查看局部道路觀測，不能比較「現在、等 15 分鐘、等 30 分鐘」的全程抵達時間，也不提供出發推薦。兩段平均旅時不相加為完整行程 ETA；少量配對樣本不代表預測可靠。</p><p>15 分鐘是工程顯示上限，並非官方發布保證或研究有效性門檻。同一觀測終窗的版本修訂，不算新時段支持。</p><button type="button" id="refresh">重新核對顯示時間</button><p class="meta">本頁不發送來源請求、不讀個人標籤、不訓練或執行預測模型。若沒有可採用資料，抵達比較、推薦與效益保持未知。</p></main>
+<script>
+const PAYLOAD=__PAYLOAD__;
+function countyView(payload,now){
+ const capture=Date.parse(payload.as_of),future=!Number.isFinite(now)||!Number.isFinite(capture)||now<capture;
+ const names=['興隆大橋：公道路 → 六家五路','高鐵五路：六家五路 → 文興路'];
+ const source=payload.frame?.segments||[null,null];
+ return {segments:source.map((s,i)=>{
+  const end=s?.window?.end_epoch,age=Number.isFinite(end)?now/1000-end:null;
+  let status=!s?'not_received':future||age!==null&&age<0?'clock_invalid':age!==null&&age>900?'stale':
+   !s.identity_valid?'identity_invalid':s.quality?.status!=='valid'?'measurement_unavailable':
+   s.clock_integrity?.status!=='consistent'?'clock_invalid':s.usable_asof!==true?'unavailable':'available';
+  return {name:names[i],status,age_seconds:age,segment:s};
+ })};
+}
+const labels={not_received:'未收到本槽資料',clock_invalid:'時鐘未通過核對',stale:'觀測已過期',identity_invalid:'路段身分／版本未通過',measurement_unavailable:'觀測數值不足或無效',unavailable:'資料不可採用',available:'此觀測可採用'};
+function text(el,tag,value,cls){const n=document.createElement(tag);n.textContent=value;if(cls)n.className=cls;el.append(n);return n;}
+function renderCounty(){
+ const now=Date.now(),v=countyView(PAYLOAD,now),box=document.getElementById('cards');box.replaceChildren();
+ document.getElementById('clock').textContent='槽位 '+PAYLOAD.slot+' ｜ 固定產物時刻 '+PAYLOAD.as_of+' ｜ 現在 '+new Date(now).toLocaleString('zh-TW',{timeZone:'Asia/Taipei'})+'（台北）';
+ for(const x of v.segments){const a=text(box,'article','');text(a,'h2',x.name);text(a,'p',labels[x.status],x.status==='available'?'status good':'status bad');const d=text(a,'dl','');
+  const s=x.segment,m=s?.measurement,values=[['觀測迄點通過時窗',s?.window?.raw?String(s.window.raw.StartTime)+' — '+String(s.window.raw.EndTime):'未知'],['平均旅時',x.status==='available'?m.mean_travel_time_seconds+' 秒':'不可採用'],['配對樣本數',m?.paired_sample_count??'未知'],['旅時標準差',m?.standard_deviation_seconds==null?'未知':m.standard_deviation_seconds+' 秒'],['完整收到／解析完成',s?.receipt?String(s.receipt.full_body_received_at??'未知')+' / '+String(s.receipt.parse_completed_at??'未知'):'未知'],['核對原因',s?[...(s.quality?.reasons||[]),...(s.clock_integrity?.anomalies||[])].join('；')||'見狀態':'本次未接收資料']];
+  for(const [k,val]of values){text(d,'dt',k);text(d,'dd',String(val));}
+ }
+}
+if(typeof document!=='undefined'){renderCounty();document.getElementById('refresh').addEventListener('click',renderCounty);setInterval(renderCounty,15000);}
+</script></html>

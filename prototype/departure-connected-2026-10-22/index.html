@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>換個時間，值得嗎？｜通勤時窗研究</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace" data-text="skip">跳至方案比較</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <a id="brand-link" class="brand" href="#" aria-label="通勤時窗研究"><span class="brand-mark" aria-hidden="true">↗</span><span>BEFORE THE BOTTLENECK<small data-text="brand">通勤時窗研究</small></span></a>
+      <div class="header-tools"><span class="research-tag" data-text="research">研究原型</span><label for="language" class="sr-only">Language / 語言</label><select id="language"><option value="zh">繁體中文</option><option value="en">English</option></select></div>
+    </header>
+    <section class="hero" aria-labelledby="page-title">
+      <div><p class="eyebrow" data-text="eyebrow">時間可以調，取捨要看清楚</p><h1 id="page-title" data-text="title">換個時間，值得嗎？</h1><p class="hero-copy" data-text="intro">把在車上的時間、調整行程的代價與末門架截止，放在一起比較。</p></div>
+      <div class="route-badge"><span data-text="route">國道1號南下75–98公里</span><small data-text="routeDetail">23公里門架走廊 · 小客車 · 非家到公司</small></div>
+    </section>
+    <nav class="mode-tabs" aria-label="資料模式" id="mode-tabs">
+      <button type="button" data-mode="replay" aria-pressed="true"><span class="tab-dot" aria-hidden="true"></span><span data-text="replayTab">歷史選項回放</span></button>
+      <button type="button" data-mode="prospective" aria-pressed="false"><span class="tab-dot" aria-hidden="true"></span><span data-text="prospectiveTab">前瞻封存預測</span></button>
+      <button type="button" data-mode="current" aria-pressed="false"><span class="tab-dot" aria-hidden="true"></span><span data-text="currentTab">今日國道觀測</span></button>
+    </nav>
+    <div id="connection" class="connection" role="status" aria-live="polite"></div>
+    <main id="workspace" tabindex="-1"></main>
+    <footer class="site-footer"><p data-text="footer">目標是在準時條件下減少塞車時間；可操作的原型、預測表現與實際通勤效益分開驗收。</p><span>ASUS UGen AI League · <span data-text="local">本機研究</span></span></footer>
+  </div>
+  <noscript>此原型需要 JavaScript；沒有載入腳本時，不會產生或顯示任何推薦。 This prototype requires JavaScript.</noscript>
+</body>
+</html>
