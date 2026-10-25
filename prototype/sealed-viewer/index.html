@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>通勤時窗 · 封存結果</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#detail" data-i18n="skip">跳至時窗詳情</a>
+  <header class="topbar">
+    <span class="brand" data-i18n="brand">通勤時窗研究</span>
+    <label class="language"><span data-i18n="language">語言</span>
+      <select id="language"><option value="zh">繁體中文</option><option value="en">English</option></select>
+    </label>
+  </header>
+  <main>
+    <div class="heading"><div><h1 data-i18n="title">封存預測結果</h1>
+      <p data-i18n="question">這一天有哪些預測通過封存驗證？哪些時窗仍無法比較？</p></div>
+      <span class="mode" data-i18n="readonly">唯讀 · 未合格策略</span>
+    </div>
+    <section id="toolbar" class="toolbar" aria-label="日期與刷新">
+      <label><span data-i18n="day">研究日期（台灣）</span><select id="day"></select></label>
+      <button id="refresh" type="button" data-i18n="refresh">重新核對封存</button>
+      <div class="check"><span data-i18n="checked">上次成功核對伺服器</span><strong id="checked">—</strong>
+        <span id="server-age"></span></div>
+    </section>
+    <p id="alert" role="alert" hidden></p>
+    <section class="summary" aria-live="polite"><div><span data-i18n="verified">已驗封存／固定應發</span>
+      <strong id="verified">— / 12</strong></div><p id="day-state"></p></section>
+    <div class="workspace">
+      <section class="timetable" aria-labelledby="slots-title"><h2 id="slots-title" data-i18n="slots">12 個原首門架時窗</h2>
+        <p class="muted" data-i18n="slotsNote">點選查看發出當時的封存資料。</p><div id="slots"></div></section>
+      <section class="detail" id="detail" tabindex="-1" aria-labelledby="detail-title">
+        <h2 id="detail-title" data-i18n="details">時窗詳情</h2><div id="detail-content"></div>
+      </section>
+    </div>
+    <footer><h2 data-i18n="scopeTitle">這些數字適用於哪裡？</h2>
+      <p data-i18n="scope">國1南下 75→88→92.8→95→98 公里五門架、小客車代碼31；比較首門架通過時窗，並非住家到公司全程。</p>
+      <p data-i18n="fixed">固定研究條件：末門架截止＝原時窗＋45分鐘；調時成本 λ＝0.5 分鐘等值／位移分鐘。empirical 是凍結的歷史分布基準。</p>
+      <p data-i18n="limits">q50／q90 是分位數估計，不是信賴區間或個人準時機率。沒有載入真值；這裡不產生建議，也不證明節時或照常最佳。</p>
+    </footer>
+  </main>
+</body>
+</html>

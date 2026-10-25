@@ -4,6 +4,19 @@
 
 **這個來源版提供可操作的歷史示例、唯讀封存 API 與資料品質契約測試；沒有合格的出發推薦策略。** 可操作的軟體不等於已證明個人節時、少塞車或降低遲到風險。
 
+## 查看既有封存結果
+
+新增獨立、唯讀的封存結果候選介面；原 0.2.0 歷史示例仍保留。
+
+```sh
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+.venv/bin/python -B -m scripts.departure_advisor.sealed_viewer --duration-seconds 3600
+```
+
+開啟 `http://127.0.0.1:8768/`（英文 `/?lang=en`）。預設選台灣今天；只有固定五個研究日期可核對，不會自動以歷史日期頂替。頁面列出當日 12 個應發時點、已驗封存數量、五候選估計與發出／封存／來源時間；刷新由使用者觸發。
+
+此入口只透過既有驗證鏈讀取本機已發布資料，不寫研究狀態，不讀現在來源或成熟真值，不執行模型、採集或排程。**Git clone 不攜帶真實封存資料**；缺少研究狀態檔時會明示不可用，不能把它當正常 0/12。服務固定 loopback、最長一小時、Ctrl+C 或 SIGTERM 可停止，不是跨裝置 HTTPS 部署。範圍、API 與選定測試見 [封存檢視器說明](docs/sealed-viewer.md)。
+
 ## 執行歷史示例
 
 目前驗證環境為 Ubuntu Linux、Python 3.12。已有相符環境時：
@@ -46,6 +59,7 @@ uv run --locked --no-sync python -B -m scripts.departure_advisor.release_demo
 |---|---|
 | `scripts/departure_advisor/` | connected API 與其必要 import closure；新增唯讀 `release_demo` 入口 |
 | `prototype/departure-connected-2026-10-22/` | 原四個 UI 來源與已授權的歷史聚合示例，原檔 bytes 保留 |
+| `prototype/sealed-viewer/` | 獨立雙語封存時窗表，透過單一唯讀 `/api/day` 核對當日 12 個時點 |
 | `reports/xinglong-public-feed-2026-10-23/` | 僅 adapter、單次 probe 與兩個 synthetic test 來源 |
 | `reports/xinglong-host-peak-2026-10-27/` | 僅 frozen host runner 與候選 template；沒有實機 program／admission／收據 |
 | `tests/` | 選定合成 API／時鐘／缺值／封存／顯示／可攜 host 契約 |
