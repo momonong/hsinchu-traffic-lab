@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "document_kind": "public_aggregate_provenance",
+  "package_version": "0.2.1",
+  "sources": [
+    {
+      "source_type": "Local receipt-derived 2026-10-26 aggregate summary",
+      "associated_evidence_as_of": "2026-10-26T12:10:24.425526+08:00",
+      "sha256": "ec15385fae9cd0e66b9280512351efa783df83a4acf4c515c63d068b8b584473",
+      "bytes": 14256,
+      "original_included": false
+    },
+    {
+      "source_type": "Local overview provenance record",
+      "associated_evidence_as_of": "2026-10-26T12:10:24.425526+08:00",
+      "sha256": "564d2042fdfc05a4682c77516fad4a88fafab5d8d91d62f6864746f7e9f3ee0c",
+      "bytes": 2285,
+      "original_included": false
+    },
+    {
+      "source_type": "Local receipt-derived 2026-10-27 morning update",
+      "associated_evidence_as_of": "2026-10-27T09:31:52.399151+08:00",
+      "sha256": "35adc0a813215bfbea947615894fabac08b01ab06fce6bfb90e440aeb402ca50",
+      "bytes": 7887,
+      "original_included": false
+    },
+    {
+      "source_type": "Owner audit supporting the historical snapshot",
+      "associated_evidence_as_of": "2026-10-26T12:10:24.425526+08:00",
+      "sha256": "65f0a7ec8174f215c7ac1305a304d4a4e9964860678fcf790788f0c9ed05277b",
+      "bytes": 53997,
+      "original_included": false
+    },
+    {
+      "source_type": "Owner audit supporting the latest morning snapshot",
+      "associated_evidence_as_of": "2026-10-27T09:31:52.399151+08:00",
+      "sha256": "89c82af2348480594aab6d29faa598805ee0c884dfd9f4722cc1db2102186984",
+      "bytes": 90307,
+      "original_included": false
+    }
+  ],
+  "public_payloads": {
+    "README.md": {
+      "sha256": "993f5f64c0b44bfffa50906caf07543de7e9a80ff373dd94727acfbcdba11250",
+      "bytes": 2569
+    },
+    "summary.json": {
+      "sha256": "2afb8d769407466dec57238ae6c85231d4e3af3d2158d09e98913743b137005e",
+      "bytes": 4296
+    }
+  },
+  "derivation": "Only selected aggregate values were copied from the admitted summaries. No state, forecast, source body, truth, model or host record was reopened to recompute results.",
+  "verification_limit": "Original local records are not included. Digests identify the withheld originals but do not make this public aggregate independently recomputable.",
+  "privacy_boundary": "No local filesystem paths, host identities, personal or vehicle-level records, credentials, operation identifiers or private preview links are included.",
+  "snapshot_rule": "Document generation and package publication do not advance the evidence cutoff. Later truth or observations are not implied.",
+  "publication_status": "Prepared for authorized Git review; this file does not assert push, merge, deployment, browser QA or human acceptance."
+}
