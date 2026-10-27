@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased — contest replay closeout
+
+- 新增 `node scripts/contest_replay.cjs --scenario undisclosed|disclosed|changed-deadline`，直接使用既有公開歷史 adapter，輸出 deterministic `contest-replay-v1` JSON；包含實際 adapter SHA256、完整五列、使用者數值條件、資格、揭露狀態與未知值。
+- 納入 2026-08-24／06:45／07:30 的未揭露及已揭露紀錄，以及截止改成 07:31 的紀錄。維持 0 個數值符合、0 個正式推薦、未知完整遲到風險差；改截止不挪用 D45 觀測比例，預測保持。
+- 新增 10 項離線 CLI 行為測試，涵蓋獨立算術、五列保留、揭露邊界、未知預測／測量、合法零、拒絕錯誤參數及逐 bytes 重現。公開測試由基準 72 增為 82 項，加 14 項 feed/probe 與既有 Node viewer 契約通過。更新重現指令與解讀限制。
+
+套件 metadata 仍為 0.2.1；未更動既有 app／adapter／模型／依賴、研究真值或排程，未取得新交通資料、部署或宣稱通勤效益。
+
 ## 0.2.1 — 2026-10-27
 
 本次增量只有公開研究彙總與版本 metadata：新增截至 10/26 與 10/27 09:31:52（台灣）的固定快照、未知真值與未合格策略邊界，以及去除內部資訊的 provenance。只同步 pyproject／uv.lock 專案版本，沒有依賴、程式、模型、研究資料或排程變動，也沒有重新計算或部署。

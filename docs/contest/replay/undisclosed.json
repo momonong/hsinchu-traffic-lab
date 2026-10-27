@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "record_version": "contest-replay-v1",
+  "scenario": "undisclosed",
+  "source": {
+    "adapter_path": "prototype/departure-connected-2026-10-22/adapter.js",
+    "adapter_sha256": "e5b9064b45233f38137000bc9f1f1dd056cf45ac5a08ba81c931e1ee65f8c4b2"
+  },
+  "scope": {
+    "mode": "historical_replay",
+    "timezone": "Asia/Taipei",
+    "vehicle_class": "31",
+    "gates": [
+      "01F0750S",
+      "01F0880S",
+      "01F0928S",
+      "01F0950S",
+      "01F0980S"
+    ]
+  },
+  "inputs": {
+    "day": "2026-08-24",
+    "nominal": "06:45",
+    "deadline": "07:30",
+    "advance": 15,
+    "delay": 30,
+    "cost": 0.5,
+    "minimum_predicted_road_reduction_minutes": 5
+  },
+  "issue_time": "2026-08-24T06:00:00+08:00",
+  "data_as_of": "2026-08-24T05:50:00+08:00",
+  "model_id": "empirical_frozen_historical_replay",
+  "qualification": {
+    "forecast_display_method": "empirical",
+    "policy_qualified": false,
+    "reason_codes": [
+      "strategy_unqualified",
+      "offline_exposed_calibration_demonstration"
+    ]
+  },
+  "decision": {
+    "status": "strategy_unqualified",
+    "selected_shift_minutes": null,
+    "reason_codes": [
+      "no_qualified_policy_no_advice"
+    ]
+  },
+  "disclosure": {
+    "state": "undisclosed",
+    "outcome_reveal_available": true,
+    "outcome_status": null,
+    "observed_deadline": null
+  },
+  "candidates": [
+    {
+      "id": "2026-08-24/405/-30",
+      "shift_minutes": -30,
+      "window_start": "2026-08-24T06:15:00+08:00",
+      "window_end": "2026-08-24T06:30:00+08:00",
+      "data_status": "available",
+      "prediction": {
+        "Tq50": 13.983333333333333,
+        "Tq90": 15.516666666666667,
+        "Aq50": 22.48333333333335,
+        "Aq90": 28.78333333333336
+      },
+      "permitted_by_user_bounds": false,
+      "estimated_q90_within_deadline": true,
+      "calibration_support": {
+        "days": null,
+        "trips": null
+      },
+      "reason_codes": [
+        "saved_empirical_forecast_no_new_forward"
+      ],
+      "predicted_roadgain": 4.65,
+      "shift_cost": 15,
+      "predicted_netgain": -10.35,
+      "checks": {
+        "within_bounds": false,
+        "gain_meets_minimum": false,
+        "q90_meets_gantry_deadline": true,
+        "matches_numeric_conditions": false,
+        "policy_qualified": false,
+        "complete_lateness_risk_delta": null,
+        "not_a_recommendation": true
+      },
+      "observed": null,
+      "outcome_reason_codes": []
+    },
+    {
+      "id": "2026-08-24/405/-15",
+      "shift_minutes": -15,
+      "window_start": "2026-08-24T06:30:00+08:00",
+      "window_end": "2026-08-24T06:45:00+08:00",
+      "data_status": "available",
+      "prediction": {
+        "Tq50": 15.516666666666667,
+        "Tq90": 19.383333333333333,
+        "Aq50": 23.55000000000001,
+        "Aq90": 31.933333333333337
+      },
+      "permitted_by_user_bounds": true,
+      "estimated_q90_within_deadline": true,
+      "calibration_support": {
+        "days": null,
+        "trips": null
+      },
+      "reason_codes": [
+        "saved_empirical_forecast_no_new_forward"
+      ],
+      "predicted_roadgain": 3.1166666666666654,
+      "shift_cost": 7.5,
+      "predicted_netgain": -4.383333333333335,
+      "checks": {
+        "within_bounds": true,
+        "gain_meets_minimum": false,
+        "q90_meets_gantry_deadline": true,
+        "matches_numeric_conditions": false,
+        "policy_qualified": false,
+        "complete_lateness_risk_delta": null,
+        "not_a_recommendation": true
+      },
+      "observed": null,
+      "outcome_reason_codes": []
+    },
+    {
+      "id": "2026-08-24/405/0",
+      "shift_minutes": 0,
+      "window_start": "2026-08-24T06:45:00+08:00",
+      "window_end": "2026-08-24T07:00:00+08:00",
+      "data_status": "available",
+      "prediction": {
+        "Tq50": 18.633333333333333,
+        "Tq90": 22.783333333333335,
+        "Aq50": 26.69999999999999,
+        "Aq90": 34.416666666666686
+      },
+      "permitted_by_user_bounds": true,
+      "estimated_q90_within_deadline": true,
+      "calibration_support": {
+        "days": null,
+        "trips": null
+      },
+      "reason_codes": [
+        "saved_empirical_forecast_no_new_forward"
+      ],
+      "predicted_roadgain": 0,
+      "shift_cost": 0,
+      "predicted_netgain": 0,
+      "checks": {
+        "within_bounds": true,
+        "gain_meets_minimum": false,
+        "q90_meets_gantry_deadline": true,
+        "matches_numeric_conditions": false,
+        "policy_qualified": false,
+        "complete_lateness_risk_delta": null,
+        "not_a_recommendation": true
+      },
+      "observed": null,
+      "outcome_reason_codes": []
+    },
+    {
+      "id": "2026-08-24/405/15",
+      "shift_minutes": 15,
+      "window_start": "2026-08-24T07:00:00+08:00",
+      "window_end": "2026-08-24T07:15:00+08:00",
+      "data_status": "available",
+      "prediction": {
+        "Tq50": 19.916666666666668,
+        "Tq90": 24.666666666666668,
+        "Aq50": 27.76666666666665,
+        "Aq90": 35.633333333333326
+      },
+      "permitted_by_user_bounds": true,
+      "estimated_q90_within_deadline": false,
+      "calibration_support": {
+        "days": null,
+        "trips": null
+      },
+      "reason_codes": [
+        "saved_empirical_forecast_no_new_forward"
+      ],
+      "predicted_roadgain": -1.283333333333335,
+      "shift_cost": 7.5,
+      "predicted_netgain": -8.783333333333335,
+      "checks": {
+        "within_bounds": true,
+        "gain_meets_minimum": false,
+        "q90_meets_gantry_deadline": false,
+        "matches_numeric_conditions": false,
+        "policy_qualified": false,
+        "complete_lateness_risk_delta": null,
+        "not_a_recommendation": true
+      },
+      "observed": null,
+      "outcome_reason_codes": []
+    },
+    {
+      "id": "2026-08-24/405/30",
+      "shift_minutes": 30,
+      "window_start": "2026-08-24T07:15:00+08:00",
+      "window_end": "2026-08-24T07:30:00+08:00",
+      "data_status": "available",
+      "prediction": {
+        "Tq50": 20.166666666666668,
+        "Tq90": 25.3,
+        "Aq50": 27.96666666666664,
+        "Aq90": 36.083333333333314
+      },
+      "permitted_by_user_bounds": true,
+      "estimated_q90_within_deadline": false,
+      "calibration_support": {
+        "days": null,
+        "trips": null
+      },
+      "reason_codes": [
+        "saved_empirical_forecast_no_new_forward"
+      ],
+      "predicted_roadgain": -1.533333333333335,
+      "shift_cost": 15,
+      "predicted_netgain": -16.533333333333335,
+      "checks": {
+        "within_bounds": true,
+        "gain_meets_minimum": false,
+        "q90_meets_gantry_deadline": false,
+        "matches_numeric_conditions": false,
+        "policy_qualified": false,
+        "complete_lateness_risk_delta": null,
+        "not_a_recommendation": true
+      },
+      "observed": null,
+      "outcome_reason_codes": []
+    }
+  ],
+  "summary": {
+    "candidate_count": 5,
+    "matching_numeric_conditions": 0,
+    "formal_recommendations": 0,
+    "complete_lateness_risk_delta": null
+  },
+  "limitations": [
+    "exposed_calibration_not_independent_validation",
+    "different_cohorts_not_individual_causal_savings",
+    "quantiles_not_confidence_intervals_or_personal_guarantees",
+    "gantry_windows_not_home_to_work_journeys",
+    "only_D45_observed_deadline_shares_available_other_deadlines_unknown",
+    "partial_observed_quantiles_and_calibration_support_remain_unknown",
+    "numeric_matches_do_not_qualify_policy_or_recommend_a_change",
+    "complete_lateness_risk_difference_unknown",
+    "no_new_source_request_training_or_model_forward",
+    "no_UGen_measurement_or_validated_commuter_benefit"
+  ]
+}
