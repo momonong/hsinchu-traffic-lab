@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "document_kind": "authorized_public_aggregate_snapshot",
+  "package_version": "0.2.1",
+  "snapshots": [
+    {
+      "evidence_as_of": "2026-10-26T12:10:24.425526+08:00",
+      "counts": {
+        "scheduled_issues": 60,
+        "sealed": 24,
+        "missing": 24,
+        "not_due": 12
+      },
+      "nominal_fallback_retained": true,
+      "note": "Historical 2026-10-26 snapshot; the 2026-10-27 results were not yet included."
+    },
+    {
+      "evidence_as_of": "2026-10-27T09:31:52.399151+08:00",
+      "counts": {
+        "scheduled_issues": 60,
+        "sealed": 36,
+        "missing": 24,
+        "not_due": 0
+      },
+      "by_day": [
+        {
+          "day": "2026-10-21",
+          "scheduled_issues": 12,
+          "sealed": 12,
+          "missing": 0,
+          "not_due": 0
+        },
+        {
+          "day": "2026-10-22",
+          "scheduled_issues": 12,
+          "sealed": 0,
+          "missing": 12,
+          "not_due": 0
+        },
+        {
+          "day": "2026-10-23",
+          "scheduled_issues": 12,
+          "sealed": 0,
+          "missing": 12,
+          "not_due": 0
+        },
+        {
+          "day": "2026-10-26",
+          "scheduled_issues": 12,
+          "sealed": 12,
+          "missing": 0,
+          "not_due": 0
+        },
+        {
+          "day": "2026-10-27",
+          "scheduled_issues": 12,
+          "sealed": 12,
+          "missing": 0,
+          "not_due": 0
+        }
+      ],
+      "nominal_fallback_retained": true,
+      "note": "Fixed snapshot only. It does not include truth retrieval or later results."
+    }
+  ],
+  "morning_20261027": {
+    "scheduled_issues": 12,
+    "verified_sealed_issues": 12,
+    "HTTP_requests": 159,
+    "HTTP_status_counts": {
+      "200": 159
+    },
+    "source_parse_status_counts": {
+      "received_parsed": 159
+    },
+    "dataset_counts": {
+      "M03A": 53,
+      "M04A": 53,
+      "M05A": 53
+    },
+    "method_candidates": {
+      "HGB": {
+        "available_candidates": 60,
+        "candidate_denominator": 60,
+        "all_null_candidates": 0
+      },
+      "TCN_ensemble": {
+        "available_candidates": 60,
+        "candidate_denominator": 60,
+        "all_null_candidates": 0
+      },
+      "empirical": {
+        "available_candidates": 60,
+        "candidate_denominator": 60,
+        "all_null_candidates": 0
+      },
+      "current_proxy": {
+        "available_candidates": 0,
+        "candidate_denominator": 60,
+        "all_null_candidates": 60
+      }
+    },
+    "method_candidate_scope": "This morning only: 12 issues x 5 candidates for each method; not 60 known truth pairs or whole-study method coverage."
+  },
+  "cumulative_at_latest_snapshot": {
+    "HTTP_requests": 477,
+    "source_parse_status_counts": {
+      "received_parsed": 476,
+      "missing_404_no_retry": 1
+    },
+    "note": "Includes one historical 404; not all 477 requests succeeded."
+  },
+  "truth_and_policy_at_latest_snapshot": {
+    "truth_days": {},
+    "truth": null,
+    "benefit": null,
+    "confidence_interval": null,
+    "policy_qualified": false,
+    "policy_selected_method": null,
+    "forecast_display_method": "empirical",
+    "recommendation": null,
+    "first_truth_batch_status": "not_due_pending_at_09:31:52_Taipei",
+    "planned_start_window": [
+      "2026-10-27T10:00:00+08:00",
+      "2026-10-27T10:30:00+08:00"
+    ],
+    "timing_note": "D+6 is a planned scenario, not an official completeness SLA. No later truth was read or added."
+  },
+  "interpretation": {
+    "fixed_issue_denominator": 60,
+    "missing_issues_and_nominal_fallback_retained": true,
+    "unknown_is_not_zero": true,
+    "shadow_forecasts_are_not_recommendations": true,
+    "keeping_nominal_is_not_proven_optimal": true,
+    "individual_time_savings_verified": false,
+    "human_acceptance": false,
+    "scope": "Gantry crossing-window cohorts, not a complete personal door-to-office commute or individual causal savings."
+  },
+  "release_scope": {
+    "increment": "Public aggregate documentation and project-version metadata only. Existing viewer entries were merged previously.",
+    "new_source_requests": 0,
+    "new_fit": 0,
+    "new_forward": 0,
+    "new_truth_reads": 0,
+    "deployment": false,
+    "dependencies_changed": false
+  },
+  "provenance": "provenance.json"
+}
