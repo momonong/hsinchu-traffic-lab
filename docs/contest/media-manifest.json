@@ -1,0 +1,42 @@
+{
+  "version": "contest-media-v3",
+  "record_version": "contest-replay-v1",
+  "files": [
+    {
+      "bytes": 610980,
+      "sha256": "a1b256ab045278d1ce574489d69d8494b2f55fc82be7b745b0f1e3c68ccf952a",
+      "filename": "before-the-bottleneck-contest-v3.pdf"
+    },
+    {
+      "bytes": 2759013,
+      "sha256": "05d44fbdcbd1b8c871a0b16c1c00a96d2aa0f505550ed8e85e886f400a8be865",
+      "filename": "before-the-bottleneck-contest-v3.pptx"
+    },
+    {
+      "bytes": 2075028,
+      "sha256": "c5fa4c3da5f5d481f7cec6e862128c52783a5330a2dde9d5a3bce457399b72d7",
+      "filename": "before-the-bottleneck-contest-v3.mp4"
+    },
+    {
+      "bytes": 3092,
+      "sha256": "574523f30b186d3acdd1212cbda628f2734507c7114971153fe5524b32498051",
+      "filename": "before-the-bottleneck-contest-v3.srt"
+    }
+  ],
+  "pdf_pages": 18,
+  "pptx_slides": 18,
+  "native_tables": 7,
+  "video_seconds": 160,
+  "video_codec": "h264",
+  "video_size": [
+    1280,
+    720
+  ],
+  "video_fps": "24/1",
+  "video_pixel_format": "yuv420p",
+  "audio_streams": 0,
+  "video_type": "edited_actual_UI_still_walkthrough",
+  "caption_cues": 22,
+  "source_adapter_sha256": "e5b9064b45233f38137000bc9f1f1dd056cf45ac5a08ba81c931e1ee65f8c4b2",
+  "delivery": "Private Library handoff completed; these media binaries are not published by this repository. Sizes and SHA256 hashes describe the locally validated source files, before any service-added PDF provenance metadata."
+}
